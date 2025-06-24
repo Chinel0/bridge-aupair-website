@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - BridgeAuPair</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      background: #f9f9f9;
+      line-height: 1.6;
+    }
+    header.site-header {
+      background: #fff;
+      padding: 1rem 3rem;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header.site-header .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #2563eb;
+      cursor: pointer;
+    }
+    header.site-header nav {
+      display: flex;
+      gap: 2rem;
+    }
+    header.site-header nav a {
+      color: #555;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    header.site-header nav a:hover {
+      color: #2563eb;
+    }
+
+    .page-title {
+      max-width: 900px;
+      margin: 3rem auto 2rem;
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      color: #222;
+    }
+
+    /* Top Grid: founder + mission */
+    .top-grid {
+      max-width: 900px;
+      margin: 0 auto 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 2rem;
+      padding: 0 1rem;
+      align-items: center;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+      padding: 2rem;
+    }
+    .founder-photo, .mission-photo {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+      width: 100%;
+      /* Removed fixed aspect ratio */
+    }
+    .founder-photo img, .mission-photo img {
+      width: 100%;
+      height: auto; /* Allow natural height */
+      object-fit: contain; /* Show entire image */
+      display: block;
+      border-radius: 12px;
+      background-color: #f9f9f9;
+      transition: transform 0.3s ease;
+    }
+    .founder-photo img:hover, .mission-photo img:hover {
+      transform: scale(1.05);
+    }
+    .founder-text, .mission-text {
+      color: #444;
+      font-size: 1.15rem;
+      padding: 0 1rem;
+    }
+    .founder-text p, .mission-text p {
+      margin-bottom: 1.25rem;
+    }
+
+    /* Core Values */
+    .values-section {
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+      text-align: center;
+    }
+    .values-section h2 {
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: #222;
+    }
+    .values-list {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .value-item {
+      flex: 1 1 150px;
+      background: white;
+      border-radius: 12px;
+      padding: 1.75rem 1rem;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.2);
+      font-weight: 600;
+      color: #2563eb;
+      font-size: 1.15rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      min-width: 140px;
+      transition: box-shadow 0.3s ease;
+    }
+    .value-item:hover {
+      box-shadow: 0 6px 28px rgba(37, 99, 235, 0.4);
+    }
+    .value-item i {
+      font-size: 2.75rem;
+    }
+
+    /* What Makes Us Different */
+    .difference {
+      max-width: 900px;
+      margin: 0 auto 4rem;
+      background: white;
+      padding: 2.5rem 3rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      font-size: 1.15rem;
+      color: #444;
+      line-height: 1.6;
+      text-align: center;
+      font-weight: 500;
+    }
+    .difference h2 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #222;
+    }
+
+    /* Call to Action */
+    .cta {
+      max-width: 900px;
+      margin: 0 auto 5rem;
+      text-align: center;
+    }
+    .cta button {
+      background-color: #2563eb;
+      border: none;
+      padding: 1.2rem 3rem;
+      font-size: 1.3rem;
+      color: white;
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.5);
+    }
+    .cta button:hover {
+      background-color: #1d4ed8;
+      box-shadow: 0 6px 24px rgba(37, 99, 235, 0.7);
+    }
+
+    /* Footer */
+    footer {
+      background: #222;
+      color: #aaa;
+      padding: 3rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #2563eb;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      font-weight: 600;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .top-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+        gap: 2rem;
+        padding: 1rem;
+      }
+      .founder-text, .founder-photo, .mission-text, .mission-photo {
+        padding: 0;
+      }
+      .values-list {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="logo">
+    <img src="au pair logo.png" alt="BridgeAuPair Logo" style="height: 50px; width: auto;">
+  </a>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Blog</a>
+    <a href="#">Courses</a>
+    <a href="#">Support</a>
+  </nav>
+</header>
+
+
+<main>
+  <h1 class="page-title">About Us</h1>
+
+  <!-- Top Grid with 2 images + text -->
+  <section class="top-grid">
+    <div class="founder-photo">
+      <img src="profile_2.PNG" alt="Founder Photo" />
+    </div>
+    <div class="founder-text">
+      <p>
+        BridgeAuPair was founded by Chinelo, who personally experienced the joys and challenges of being an au pair abroad. Inspired by this journey, the agency is dedicated to empowering au pairs and supporting host families with comprehensive training and ongoing assistance.
+      </p>
+      <p>
+        With a passion for cultural exchange and people, Chinelo created BridgeAuPair to build a trusted, safe, and supportive community for everyone involved.
+      </p>
+    </div>
+
+    <div class="mission-text">
+      <p>
+        Our mission is to create a trusted community where cultural exchange thrives, and every au pair and host family feels informed, secure, and supported throughout their experience.
+      </p>
+    </div>
+    <div class="mission-photo">
+      <img src="me.jpg" alt="Mission Photo" />
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="values-section">
+    <h2>Our Core Values</h2>
+    <div class="values-list">
+      <div class="value-item">
+        <i class="fas fa-handshake"></i>
+        Trust
+      </div>
+      <div class="value-item">
+        <i class="fas fa-chalkboard-teacher"></i>
+        Quality Training
+      </div>
+      <div class="value-item">
+        <i class="fas fa-heart"></i>
+        Compassion
+      </div>
+      <div class="value-item">
+        <i class="fas fa-users"></i>
+        Community
+      </div>
+      <div class="value-item">
+        <i class="fas fa-shield-alt"></i>
+        Security
+      </div>
+    </div>
+  </section>
+
+  <!-- What Makes Us Different -->
+  <section class="difference">
+    <h2>What Makes Us Different</h2>
+    <p>
+      BridgeAuPair stands out through its unique 3-month training program designed to prepare au pairs and host families before placement. Our ongoing support and scam prevention initiatives ensure a safe and rewarding cultural exchange experience for everyone involved.
+    </p>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta">
+    <button onclick="window.location.href='#'">Join Our Community</button>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 BridgeAuPair. All rights reserved.</p>
+  <nav>
+    <a href="#">Home</a> |
+    <a href="#">About Us</a> |
+    <a href="#">Courses</a> |
+    <a href="#">Contact</a>
+  </nav>
+</footer>
+
+</body>
+</html>

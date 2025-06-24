@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>BridgeAuPair Blog</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+<style>
+  body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background: #faf8f6;
+    line-height: 1.6;
+  }
+  header.site-header {
+    background: #fff;
+    padding: 1rem 3rem;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header.site-header .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #2563eb;
+    cursor: pointer;
+  }
+  header.site-header nav {
+    display: flex;
+    gap: 2rem;
+  }
+  header.site-header nav a {
+    color: #555;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  header.site-header nav a:hover {
+    color: #2563eb;
+  }
+  
+  main {
+    max-width: 1200px;
+    margin: 2rem auto 4rem;
+    padding: 0 1rem;
+  }
+  h1.page-title {
+    text-align: center;
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+    color: #222;
+  }
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  article.post {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+  }
+  article.post:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  article.post img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+  }
+  article.post .content {
+    padding: 1rem 1.5rem 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  article.post h3 {
+    margin: 0 0 0.75rem;
+    color: #2563eb;
+  }
+  article.post p.excerpt {
+    flex-grow: 1;
+    color: #555;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+  }
+  article.post a.read-more {
+    align-self: flex-start;
+    background-color: #2563eb;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  article.post a.read-more:hover {
+    background-color: #1d4ed8;
+  }
+
+  @media (max-width: 992px) {
+    .posts-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</head>
+<body>
+
+<<header class="site-header">
+  <a href="index.html" class="logo">
+    <img src="au pair logo.png" alt="BridgeAuPair Logo" style="height: 50px; width: auto;">
+  </a>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Blog</a>
+    <a href="#">Courses</a>
+    <a href="#">Support</a>
+  </nav>
+</header>
+
+
+<main>
+  <h1 class="page-title">BridgeAuPair Blog</h1>
+
+  <section class="posts-grid">
+
+    <!-- Example post 1 -->
+    <article class="post">
+      <img src="https://source.unsplash.com/400x300/?aupair,travel" alt="Exploring Europe" />
+      <div class="content">
+        <h3>Exploring Europe as an Au Pair</h3>
+        <p class="excerpt">Discover how being an au pair opens doors to travel and cultural immersion across Europe.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </article>
+
+    <!-- Example post 2 -->
+    <article class="post">
+      <img src="https://source.unsplash.com/400x300/?hostfamily,kids" alt="Tips for Host Families" />
+      <div class="content">
+        <h3>Top Tips for Host Families</h3>
+        <p class="excerpt">Create a welcoming environment and build lasting relationships with your au pair.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </article>
+
+    <!-- Example post 3 -->
+    <article class="post">
+      <img src="https://source.unsplash.com/400x300/?language,learning" alt="Language Skills" />
+      <div class="content">
+        <h3>Improve Your Language Skills Abroad</h3>
+        <p class="excerpt">Immersing yourself in a new culture is the fastest way to learn a language.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </article>
+
+    <!-- Example post 4 -->
+    <article class="post">
+      <img src="https://source.unsplash.com/400x300/?training,education" alt="Training Importance" />
+      <div class="content">
+        <h3>Why Training Matters</h3>
+        <p class="excerpt">Our courses prepare you for a successful au pair experience.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </article>
+
+    <!-- Example post 5 -->
+    <article class="post">
+      <img src="https://source.unsplash.com/400x300/?interview,preparation" alt="Interview Tips" />
+      <div class="content">
+        <h3>Interview Tips</h3>
+        <p class="excerpt">How to prepare and succeed in your au pair interviews.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </article>
+
+    <!-- Example post 6 -->
+    <article class="post">
+      <img src="https://source.unsplash.com/400x300/?culture,exchange" alt="Cultural Exchange" />
+      <div class="content">
+        <h3>Cultural Exchange Experiences</h3>
+        <p class="excerpt">Real stories and tips from au pairs who have lived abroad.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </article>
+
+    <!-- Example post 7 -->
+    <article class="post">
+      <img src="https://source.unsplash.com/400x300/?childcare,parenting" alt="Childcare Tips" />
+      <div class="content">
+        <h3>Childcare Tips for Au Pairs</h3>
+        <p class="excerpt">Essential advice for providing the best care to your host family’s children.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </article>
+
+    <!-- Example post 8 -->
+    <article class="post">
+      <img src="https://source.unsplash.com/400x300/?hostfamily,communication" alt="Communication" />
+      <div class="content">
+        <h3>Effective Communication with Hosts</h3>
+        <p class="excerpt">Learn to build trust and understanding with your host family.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </article>
+
+    <!-- Example post 9 -->
+    <article class="post">
+      <img src="https://source.unsplash.com/400x300/?travel,adventure" alt="Travel Adventures" />
+      <div class="content">
+        <h3>Travel Adventures for Au Pairs</h3>
+        <p class="excerpt">Tips to make the most of your time abroad.</p>
+        <a href="#" class="read-more">Read More</a>
+      </div>
+    </article>
+
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 BridgeAuPair. All rights reserved.</p>
+  <nav>
+    <a href="#">Home</a> |
+    <a href="#">About Us</a> |
+    <a href="#">Courses</a> |
+    <a href="#">Contact</a>
+  </nav>
+</footer>
+
+</body>
+</html>
