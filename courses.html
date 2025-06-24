@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Courses - BridgeAuPair</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      background: #f9f9f9;
+      line-height: 1.6;
+    }
+    header.site-header {
+      background: #fff;
+      padding: 1rem 3rem;
+      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header.site-header .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #2563eb;
+      cursor: pointer;
+    }
+    header.site-header nav {
+      display: flex;
+      gap: 2rem;
+    }
+    header.site-header nav a {
+      color: #555;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    header.site-header nav a:hover {
+      color: #2563eb;
+    }
+
+    /* Hero Section */
+    section.hero {
+      background: url("coursess.png") no-repeat center center/cover;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      position: relative;
+      text-align: center;
+      padding: 0 1rem;
+    }
+    section.hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    section.hero h1 {
+      position: relative;
+      z-index: 2;
+      font-size: 3rem;
+      font-weight: 700;
+      max-width: 900px;
+      margin: 0 auto 1rem;
+    }
+
+    /* Filter/Search container */
+    .filter-search {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      gap: 1rem;
+      max-width: 900px;
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .filter-search select,
+    .filter-search input[type="search"] {
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+      min-width: 180px;
+    }
+
+    /* Section Titles */
+    h2.section-title {
+      max-width: 900px;
+      margin: 2rem auto 1rem;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #222;
+      text-align: center;
+    }
+
+    /* Courses Section */
+    .courses-section {
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+    }
+    .course-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .course-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .course-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .course-content {
+      padding: 1rem 1.25rem 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .course-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #2563eb;
+    }
+    .course-description {
+      flex: 1;
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    .btn-view-course {
+      align-self: flex-start;
+      background-color: #2563eb;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .btn-view-course:hover {
+      background-color: #1d4ed8;
+    }
+
+    /* Questions Section */
+    .questions-section {
+      max-width: 1100px;
+      margin: 2rem auto 4rem;
+      padding: 2rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+    .questions-section h2 {
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #1e293b;
+    }
+    .questions-container {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .contact-column {
+      flex: 1 1 55%;
+      text-align: center;
+    }
+    .contact-column img {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 1rem;
+    }
+    .contact-column p {
+      font-size: 1.1rem;
+      color: #475569;
+      margin-bottom: 1rem;
+    }
+    .chatbot-column {
+      flex: 1 1 40%;
+    }
+    .chatbot-placeholder {
+      height: 300px;
+      background-color: #eef6ff;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      color: #2563eb;
+      font-size: 1.3rem;
+      padding: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .courses-section {
+        padding: 0 1rem;
+      }
+      .course-list {
+        grid-template-columns: 1fr;
+      }
+      .questions-container {
+        flex-direction: column;
+      }
+      .contact-column, .chatbot-column {
+        flex: 1 1 100%;
+      }
+      .contact-column img {
+        max-width: 100%;
+        height: auto;
+      }
+      .chatbot-placeholder {
+        height: 250px;
+      }
+      .filter-search {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<<header class="site-header">
+  <a href="index.html" class="logo">
+    <img src="au pair logo.png" alt="BridgeAuPair Logo" style="height: 50px; width: auto;">
+  </a>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Blog</a>
+    <a href="#">Courses</a>
+    <a href="#">Support</a>
+  </nav>
+</header>
+
+<section class="hero" aria-label="Our courses hero banner">
+  <h1>Our Courses</h1>
+  <div class="filter-search">
+    <select id="courseTypeFilter" aria-label="Filter courses by type">
+      <option value="all">All Courses</option>
+      <option value="aupair">Au Pair Courses</option>
+      <option value="hostfamily">Host Family Courses</option>
+    </select>
+    <input type="search" id="courseSearch" placeholder="Search courses..." aria-label="Search courses"/>
+  </div>
+</section>
+
+<section class="courses-section" aria-label="Courses list">
+  <div class="course-list" id="courseList">
+
+    <!-- Au Pair Courses -->
+    <div class="course-card" data-type="aupair">
+      <img src="https://source.unsplash.com/400x300/?visa" alt="Visa & Legal Basics" />
+      <div class="course-content">
+        <div class="course-title">Visa & Legal Basics</div>
+        <p class="course-description">How to apply for the right visa or residence permit, labor laws, contracts, and social security overview.</p>
+        <a href="#" class="btn-view-course">View Course</a>
+      </div>
+    </div>
+    <div class="course-card" data-type="aupair">
+      <img src="https://source.unsplash.com/400x300/?application,job" alt="Finding & Applying for Host Families" />
+      <div class="course-content">
+        <div class="course-title">Finding & Applying for Host Families</div>
+        <p class="course-description">CV writing, platform navigation and safety, avoiding scams, and interview prep.</p>
+        <a href="#" class="btn-view-course">View Course</a>
+      </div>
+    </div>
+    <div class="course-card" data-type="aupair">
+      <img src="https://source.unsplash.com/400x300/?culture" alt="Cultural Adaptation & Expectations" />
+      <div class="course-content">
+        <div class="course-title">Cultural Adaptation & Expectations</div>
+        <p class="course-description">Understanding culture, daily routines, roles, personal boundaries, and rights.</p>
+        <a href="#" class="btn-view-course">View Course</a>
+      </div>
+    </div>
+    <div class="course-card" data-type="aupair">
+      <img src="https://source.unsplash.com/400x300/?communication" alt="Communication Skills" />
+      <div class="course-content">
+        <div class="course-title">Communication Skills</div>
+        <p class="course-description">Speaking up, managing conflicts, recognizing manipulation, and escalation.</p>
+        <a href="#" class="btn-view-course">View Course</a>
+      </div>
+    </div>
+    <div class="course-card" data-type="aupair">
+      <img src="https://source.unsplash.com/400x300/?wellbeing" alt="Social & Personal Wellbeing" />
+      <div class="course-content">
+        <div class="course-title">Social & Personal Wellbeing</div>
+        <p class="course-description">Mental health, support networks, safe free time, and changing hosts.</p>
+        <a href="#" class="btn-view-course">View Course</a>
+      </div>
+    </div>
+    <div class="course-card" data-type="aupair">
+      <img src="https://source.unsplash.com/400x300/?childcare,kids" alt="Childcare & Activities" />
+      <div class="course-content">
+        <div class="course-title">Childcare & Activities</div>
+        <p class="course-description">Age-appropriate games, child development basics, and emergencies.</p>
+        <a href="#" class="btn-view-course">View Course</a>
+      </div>
+    </div>
+    <div class="course-card" data-type="aupair">
+      <img src="https://source.unsplash.com/400x300/?personality" alt="Personality & Matching" />
+      <div class="course-content">
+        <div class="course-title">Personality & Matching</div>
+        <p class="course-description">Introversion vs. extroversion, compatible personalities, self-awareness.</p>
+        <a href="#" class="btn-view-course">View Course</a>
+      </div>
+    </div>
+    <div class="course-card" data-type="aupair">
+      <img src="https://source.unsplash.com/400x300/?language" alt="Language Training" />
+      <div class="course-content">
+        <div class="course-title">Language Training</div>
+        <p class="course-description">Basic phrases, cultural etiquette, expressions, and language learning.</p>
+        <a href="#" class="btn-view-course">View Course</a>
+      </div>
+    </div>
+
+    <!-- Host Family Courses -->
+    <div class="course-card" data-type="hostfamily">
+      <img src="https://source.unsplash.com/400x300/?contract,law" alt="Legal & Contractual Responsibilities" />
+      <div class="course-content">
+        <div class="course-title">Legal & Contractual Responsibilities</div>
+        <p class="course-description">Legal obligations, fair hours and pocket money, paperwork and registration.</p>
+        <a href="#" class="btn-view-course">View Course</a>
+      </div>
+    </div>
+    <div class="course-card" data-type="hostfamily">
+      <img src="https://source.unsplash.com/400x300/?culture,diversity" alt="Cultural Sensitivity & Communication" />
+      <div class="course-content">
+        <div class="course-title">Cultural Sensitivity & Communication</div>
+        <p class="course-description">Understanding backgrounds, open communication, respecting boundaries.</p>
+        <a href="#" class="btn-view-course">View Course</a>
+      </div>
+    </div>
+    <div class="course-card" data-type="hostfamily">
+      <img src="https://source.unsplash.com/400x300/?onboarding" alt="Effective Onboarding" />
+      <div class="course-content">
+        <div class="course-title">Effective Onboarding</div>
+        <p class="course-description">Preparing family and home, setting expectations and house rules.</p>
+        <a href="#" class="btn-view-course">View Course</a>
+      </div>
+    </div>
+    <div class="course-card" data-type="hostfamily">
+      <img src="https://source.unsplash.com/400x300/?wellbeing" alt="Supporting Au Pair Wellbeing" />
+      <div class="course-content">
+        <div class="course-title">Supporting Au Pair Wellbeing</div>
+        <p class="course-description">Encouraging social activities, monitoring stress, emotional support.</p>
+        <a href="#" class="btn-view-course">View Course</a>
+      </div>
+    </div>
+    <div class="course-card" data-type="hostfamily">
+      <img src="https://source.unsplash.com/400x300/?conflict,resolution" alt="Conflict Prevention & Resolution" />
+      <div class="course-content">
+        <div class="course-title">Conflict Prevention & Resolution</div>
+        <p class="course-description">Avoiding misunderstandings, handling complaints, agency engagement.</p>
+        <a href="#" class="btn-view-course">View Course</a>
+      </div>
+    </div>
+    <div class="course-card" data-type="hostfamily">
+      <img src="https://source.unsplash.com/400x300/?exploitation" alt="Avoiding Exploitation" />
+      <div class="course-content">
+        <div class="course-title">Avoiding Exploitation</div>
+        <p class="course-description">Identifying abuse, treating au pairs as family not employees.</p>
+        <a href="#" class="btn-view-course">View Course</a>
+      </div>
+    </div>
+    <div class="course-card" data-type="hostfamily">
+      <img src="https://source.unsplash.com/400x300/?childcare" alt="Effective Childcare Partnership" />
+      <div class="course-content">
+        <div class="course-title">Effective Childcare Partnership</div>
+        <p class="course-description">Collaborating on childcare goals, age-appropriate expectations and safety.</p>
+        <a href="#" class="btn-view-course">View Course</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Have Any Questions Section -->
+<section class="questions-section" aria-label="Have any questions? Contact us or chat with us">
+  <h2 class="section-title">Have Any Questions?</h2>
+  <div class="questions-container">
+    <div class="contact-column">
+      <img src="customer service.png" alt="Contact Us" />
+      <p>Need help? Visit our Contact Us page to get in touch with our support team.</p>
+      <a href="contact.html" class="btn-view-course">Contact Us</a>
+    </div>
+    <div class="chatbot-column">
+      <div class="chatbot-placeholder">
+        Chatbot Placeholder
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 BridgeAuPair. All rights reserved.</p>
+  <nav>
+    <a href="#">Home</a> |
+    <a href="#">About Us</a> |
+    <a href="#">Courses</a> |
+    <a href="#">Contact</a>
+  </nav>
+</footer>
+
+<script>
+  const courseTypeFilter = document.getElementById('courseTypeFilter');
+  const courseSearch = document.getElementById('courseSearch');
+  const courses = document.querySelectorAll('.course-card');
+
+  function filterCourses() {
+    const type = courseTypeFilter.value;
+    const searchTerm = courseSearch.value.toLowerCase();
+
+    courses.forEach(course => {
+      const courseType = course.getAttribute('data-type');
+      const title = course.querySelector('.course-title').textContent.toLowerCase();
+      const description = course.querySelector('.course-description').textContent.toLowerCase();
+
+      const matchesType = (type === 'all') || (courseType === type);
+      const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+
+      if (matchesType && matchesSearch) {
+        course.style.display = '';
+      } else {
+        course.style.display = 'none';
+      }
+    });
+  }
+
+  courseTypeFilter.addEventListener('change', filterCourses);
+  courseSearch.addEventListener('input', filterCourses);
+</script>
+
+</body>
+</html>

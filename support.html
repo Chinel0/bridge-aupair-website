@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Support & Contact - BridgeAuPair</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+<style>
+  body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background: #f9f9f9;
+    line-height: 1.6;
+  }
+  header.site-header {
+    background: #fff;
+    padding: 1rem 3rem;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header.site-header .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #2563eb;
+    cursor: pointer;
+  }
+  header.site-header nav {
+    display: flex;
+    gap: 2rem;
+  }
+  header.site-header nav a {
+    color: #555;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  header.site-header nav a:hover {
+    color: #2563eb;
+  }
+
+  /* Hero Section */
+  section.hero {
+    position: relative;
+    background: url("customer service.png") no-repeat center center/cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+  }
+  section.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1;
+  }
+  section.hero h1 {
+    position: relative;
+    font-size: 3rem;
+    font-weight: 700;
+    z-index: 2;
+    max-width: 900px;
+    padding: 0 1rem;
+  }
+
+  /* FAQ Section */
+  section.faq {
+    max-width: 900px;
+    margin: 3rem auto 4rem;
+    padding: 0 1rem;
+  }
+  section.faq h2 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #222;
+  }
+  details {
+    background: white;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+    cursor: pointer;
+    font-size: 1.1rem;
+  }
+  summary {
+    font-weight: 600;
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary:after {
+    content: "▼";
+    float: right;
+    transition: transform 0.3s ease;
+  }
+  details[open] summary:after {
+    transform: rotate(-180deg);
+  }
+  .answer {
+    margin-top: 0.75rem;
+    line-height: 1.4;
+    color: #444;
+  }
+  .answer a {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .answer a:hover {
+    text-decoration: underline;
+  }
+
+  /* Contact Section */
+  section.contact {
+    max-width: 900px;
+    margin: 3rem auto 5rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  }
+  section.contact h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: #222;
+  }
+  .contact-content {
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  /* Left contact info grid */
+  .contact-info {
+    flex: 1 1 45%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1.5rem 2rem;
+  }
+  .info-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+  .info-box:nth-child(2n) {
+    border-right: none;
+  }
+  .info-box:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+  .info-icon {
+    font-size: 2.5rem;
+    color: #2563eb;
+    margin-bottom: 0.5rem;
+  }
+  .info-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+  .info-text {
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+  }
+
+  /* Right contact form */
+  form.contact-form {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  form.contact-form label {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  form.contact-form input,
+  form.contact-form textarea {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: vertical;
+  }
+  form.contact-form textarea {
+    min-height: 120px;
+  }
+  form.contact-form button {
+    margin-top: 1rem;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.85rem 1.5rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  form.contact-form button:hover {
+    background-color: #1d4ed8;
+  }
+
+  /* Social Media Links */
+  .social-links {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;  /* space between icons */
+    flex-wrap: wrap; /* allow wrapping on small screens */
+  }
+  .social-links a {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #2563eb;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+  }
+  .social-links a:hover {
+    color: #1d4ed8;
+  }
+
+  /* Chatbot */
+  .chatbot {
+    max-width: 900px;
+    margin: 1rem auto 4rem;
+    background-color: #eef6ff;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2563eb;
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding: 1rem;
+    cursor: pointer;
+    user-select: none;
+    max-width: 400px;
+  }
+  .chatbot i {
+    margin-right: 8px;
+    font-size: 1.5rem;
+  }
+
+  /* Map */
+  .map-container {
+    max-width: 900px;
+    margin: 3rem auto 4rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  }
+  iframe {
+    width: 100%;
+    height: 350px;
+    border: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    section.hero h1 {
+      font-size: 2rem;
+    }
+    .contact-content {
+      flex-direction: column;
+      gap: 2rem;
+    }
+    .contact-info, form.contact-form {
+      flex: 1 1 100%;
+    }
+    .chatbot {
+      max-width: 100%;
+      font-size: 1rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="logo">
+    <img src="au pair logo.png" alt="BridgeAuPair Logo" style="height: 50px; width: auto;">
+  </a>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Blog</a>
+    <a href="#">Courses</a>
+    <a href="#">Support</a>
+  </nav>
+</header>
+
+<section class="hero" aria-label="Support hero section with background image">
+  <h1>Support</h1>
+</section>
+
+<section class="faq" aria-label="Frequently Asked Questions">
+  <h2>Frequently Asked Questions</h2>
+
+  <details>
+    <summary>What is an Au Pair?</summary>
+    <div class="answer">An au pair is a young adult who travels abroad to live with a host family, providing childcare and cultural exchange. Learn more <a href="#">here</a>.</div>
+  </details>
+
+  <details>
+    <summary>How do I sign up for a course?</summary>
+    <div class="answer">You can sign up by creating a profile and paying for the course online. Check our <a href="#">Course Registration</a> page.</div>
+  </details>
+
+  <details>
+    <summary>What payment methods do you accept?</summary>
+    <div class="answer">We accept credit cards, PayPal, and bank transfers. Details on payment options are available <a href="#">here</a>.</div>
+  </details>
+
+  <details>
+    <summary>How long does the training program last?</summary>
+    <div class="answer">The standard program is 3 months, covering essential topics for au pairs and host families. See the <a href="#">Course Curriculum</a> for details.</div>
+  </details>
+
+  <details>
+    <summary>Can I change host families during my stay?</summary>
+    <div class="answer">Yes, if the situation is unsuitable, we support safe and respectful host family changes. Learn about this process <a href="#">here</a>.</div>
+  </details>
+
+  <details>
+    <summary>What kind of support is available during the program?</summary>
+    <div class="answer">We provide ongoing support including virtual classes, a community forum, and access to counselors. More info <a href="#">here</a>.</div>
+  </details>
+
+  <details>
+    <summary>Are the courses accredited or certified?</summary>
+    <div class="answer">Our courses come with certificates of completion recognized by partner organizations. Details <a href="#">here</a>.</div>
+  </details>
+
+  <details>
+    <summary>How do host families apply?</summary>
+    <div class="answer">Host families apply by registering online and completing a vetting process. More info <a href="#">here</a>.</div>
+  </details>
+
+  <details>
+    <summary>What safety measures are in place to prevent scams?</summary>
+    <div class="answer">We verify all profiles and provide scam prevention training. Read more <a href="#">here</a>.</div>
+  </details>
+
+  <details>
+    <summary>Do I need experience to take this course?</summary>
+    <div class="answer">No prior experience is needed; our courses are designed for beginners to advanced learners. Start <a href="#">here</a>.</div>
+  </details>
+
+  <details>
+    <summary>How can I contact BridgeAuPair for personalized help?</summary>
+    <div class="answer">You can reach us via the contact form below or through our social media channels.</div>
+  </details>
+</section>
+
+<section class="contact" aria-label="Contact section with form and social media">
+  <h2>Need Help?</h2>
+  <div class="contact-content">
+    <div class="contact-info">
+      <div class="chatbot" role="region" aria-label="Chatbot placeholder">
+  <i class="fas fa-comments"></i> Let's Chat
+</div>
+      <div class="info-box">
+        <div class="info-icon"><i class="fas fa-envelope"></i></div>
+        <div class="info-title">Email</div>
+        <div class="info-text">info@bridgeaupair.com<br>support@bridgeaupair.com</div>
+      </div>
+      <div class="info-box">
+        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="info-title">Location</div>
+        <div class="info-text">Munich, Germany</div>
+      </div>
+      <div class="info-box">
+        <div class="info-icon"><i class="fas fa-clock"></i></div>
+        <div class="info-title">Working Hours</div>
+        <div class="info-text">Monday to Saturday<br>9:00 AM - 6:00 PM</div>
+      </div>
+    </div>
+
+    <form class="contact-form" aria-label="Contact form">
+      <label for="firstName">First Name *</label>
+      <input type="text" id="firstName" name="firstName" required>
+
+      <label for="lastName">Last Name *</label>
+      <input type="text" id="lastName" name="lastName" required>
+
+      <label for="mobile">Mobile No *</label>
+      <input type="tel" id="mobile" name="mobile" required>
+
+      <label for="emailID">Email ID *</label>
+      <input type="email" id="emailID" name="emailID" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message"></textarea>
+
+      <label for="captcha">Please type the characters *</label>
+      <input type="text" id="captcha" name="captcha" required>
+
+      <button type="submit">Submit <i class="fas fa-paper-plane"></i></button>
+    </form>
+  </div>
+
+  <div class="social-links" aria-label="Social media links">
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+  </div>
+</section>
+
+
+<div class="map-container" aria-label="Map of Munich">
+  <iframe
+    src="https://www.openstreetmap.org/export/embed.html?bbox=11.522%2C48.063%2C11.715%2C48.186&amp;layer=mapnik"
+    loading="lazy"
+    allowfullscreen
+    title="Map of Munich"
+  ></iframe>
+</div>
+
+<footer>
+  <p>© 2025 BridgeAuPair. All rights reserved.</p>
+  <nav>
+    <a href="#">Home</a> |
+    <a href="#">About Us</a> |
+    <a href="#">Courses</a> |
+    <a href="#">Support</a>
+  </nav>
+</footer>
+
+<script>
+  // Optional: Add keyboard accessible toggle for details
+  document.querySelectorAll('details').forEach((detail) => {
+    detail.addEventListener('toggle', () => {
+      if (detail.open) {
+        document.querySelectorAll('details').forEach(d => {
+          if (d !== detail) d.open = false;
+        });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
