@@ -144,28 +144,32 @@
     gap: 3rem;
     flex-wrap: wrap;
   }
-
-  /* Left contact info grid */
   .contact-info {
     flex: 1 1 45%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    gap: 1.5rem 2rem;
-  }
-  .info-box {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .contact-photo {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+  }
+  .info-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+  }
+  .info-box {
+    flex: 1;
+    background: white;
     padding: 1rem;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-  }
-  .info-box:nth-child(2n) {
-    border-right: none;
-  }
-  .info-box:nth-last-child(-n+2) {
-    border-bottom: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.2);
+    text-align: center;
   }
   .info-icon {
     font-size: 2.5rem;
@@ -174,50 +178,53 @@
   }
   .info-title {
     font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
   }
   .info-text {
-    font-size: 1rem;
     color: #555;
-    text-align: center;
+    font-size: 1rem;
   }
-
-  /* Right contact form */
-  form.contact-form {
+  .chatbot-box .info-icon {
+    color: #10b981;
+  }
+  .chatbot-box .info-text {
+    font-weight: 700;
+    color: #10b981;
+  }
+  .contact-form {
     flex: 1 1 45%;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
   }
-  form.contact-form label {
+  .contact-form label {
     font-weight: 600;
-    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    margin-top: 1rem;
   }
-  form.contact-form input,
-  form.contact-form textarea {
-    padding: 0.75rem 1rem;
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.5rem;
     font-size: 1rem;
-    border: 1px solid #ccc;
     border-radius: 8px;
+    border: 1px solid #ccc;
     resize: vertical;
   }
-  form.contact-form textarea {
+  .contact-form textarea {
     min-height: 120px;
   }
-  form.contact-form button {
-    margin-top: 1rem;
+  .contact-form button {
+    margin-top: 1.5rem;
     background-color: #2563eb;
-    color: white;
     border: none;
-    padding: 0.85rem 1.5rem;
+    padding: 0.75rem;
+    color: white;
     font-weight: 700;
     font-size: 1.1rem;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-  form.contact-form button:hover {
+  .contact-form button:hover {
     background-color: #1d4ed8;
   }
 
@@ -226,44 +233,29 @@
     margin-top: 2rem;
     display: flex;
     justify-content: center;
-    gap: 1.5rem;  /* space between icons */
-    flex-wrap: wrap; /* allow wrapping on small screens */
+    gap: 1.5rem;
+    flex-wrap: wrap;
   }
   .social-links a {
-    margin: 0;
-    font-size: 2.5rem;
-    color: #2563eb;
+    font-size: 2rem;
     transition: color 0.3s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
   }
-  .social-links a:hover {
-    color: #1d4ed8;
+  .social-links a.instagram {
+    color: #E4405F;
   }
-
-  /* Chatbot */
-  .chatbot {
-    max-width: 900px;
-    margin: 1rem auto 4rem;
-    background-color: #eef6ff;
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #2563eb;
-    font-weight: 700;
-    font-size: 1.3rem;
-    padding: 1rem;
-    cursor: pointer;
-    user-select: none;
-    max-width: 400px;
+  .social-links a.facebook {
+    color: #1877F2;
   }
-  .chatbot i {
-    margin-right: 8px;
-    font-size: 1.5rem;
+  .social-links a.tiktok {
+    color: #000000;
+  }
+  .social-links a.youtube {
+    color: #FF0000;
   }
 
   /* Map */
@@ -289,12 +281,8 @@
       flex-direction: column;
       gap: 2rem;
     }
-    .contact-info, form.contact-form {
+    .contact-info, .contact-form {
       flex: 1 1 100%;
-    }
-    .chatbot {
-      max-width: 100%;
-      font-size: 1rem;
     }
   }
 </style>
@@ -377,70 +365,85 @@
   </details>
 </section>
 
-<section class="contact" aria-label="Contact section with form and social media">
-  <h2>Need Help?</h2>
+<section class="contact" aria-label="Contact section with form and info">
+  <h2>Get In Touch With Us Now!</h2>
   <div class="contact-content">
     <div class="contact-info">
-      <div class="chatbot" role="region" aria-label="Chatbot placeholder">
-  <i class="fas fa-comments"></i> Let's Chat
-</div>
-      <div class="info-box">
-        <div class="info-icon"><i class="fas fa-envelope"></i></div>
-        <div class="info-title">Email</div>
-        <div class="info-text">info@bridgeaupair.com<br>support@bridgeaupair.com</div>
-      </div>
-      <div class="info-box">
-        <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
-        <div class="info-title">Location</div>
-        <div class="info-text">Munich, Germany</div>
-      </div>
-      <div class="info-box">
-        <div class="info-icon"><i class="fas fa-clock"></i></div>
-        <div class="info-title">Working Hours</div>
-        <div class="info-text">Monday to Saturday<br>9:00 AM - 6:00 PM</div>
+      <img src="telephone.jpg" alt="Customer service" class="contact-photo" />
+
+      <div class="info-columns">
+        <div class="info-box">
+          <div class="info-icon"><i class="fas fa-envelope"></i></div>
+          <div class="info-title">Email</div>
+          <div class="info-text">
+            info@bridgeaupair.com<br />
+            support@bridgeaupair.com
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="info-icon"><i class="fas fa-clock"></i></div>
+          <div class="info-title">Working Hours</div>
+          <div class="info-text">
+            Monday to Saturday<br />
+            9:00 AM - 6:00 PM
+          </div>
+        </div>
+        <div class="info-box chatbot-box">
+          <div class="info-icon"><i class="fas fa-comments"></i></div>
+          <div class="info-title">Chatbot</div>
+          <div class="info-text">Let's Chat!</div>
+        </div>
       </div>
     </div>
 
     <form class="contact-form" aria-label="Contact form">
       <label for="firstName">First Name *</label>
-      <input type="text" id="firstName" name="firstName" required>
+      <input type="text" id="firstName" name="firstName" required />
 
       <label for="lastName">Last Name *</label>
-      <input type="text" id="lastName" name="lastName" required>
+      <input type="text" id="lastName" name="lastName" required />
 
       <label for="mobile">Mobile No *</label>
-      <input type="tel" id="mobile" name="mobile" required>
+      <input type="tel" id="mobile" name="mobile" required />
 
       <label for="emailID">Email ID *</label>
-      <input type="email" id="emailID" name="emailID" required>
+      <input type="email" id="emailID" name="emailID" required />
 
       <label for="message">Message</label>
       <textarea id="message" name="message"></textarea>
 
       <label for="captcha">Please type the characters *</label>
-      <input type="text" id="captcha" name="captcha" required>
+      <input type="text" id="captcha" name="captcha" required />
 
-      <button type="submit">Submit <i class="fas fa-paper-plane"></i></button>
+      <button type="submit">
+        Submit <i class="fas fa-paper-plane"></i>
+      </button>
     </form>
   </div>
 
   <div class="social-links" aria-label="Social media links">
-    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="#" aria-label="Instagram" class="instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="#" aria-label="Facebook" class="facebook">
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="#" aria-label="TikTok" class="tiktok">
+      <i class="fab fa-tiktok"></i>
+    </a>
+    <a href="#" aria-label="YouTube" class="youtube">
+      <i class="fab fa-youtube"></i>
+    </a>
+  </div>
+  <div class="map-container" aria-label="Map of Munich">
+    <iframe
+      src="https://www.openstreetmap.org/export/embed.html?bbox=11.522%2C48.063%2C11.715%2C48.186&amp;layer=mapnik"
+      loading="lazy"
+      allowfullscreen
+      title="Map of Munich"
+    ></iframe>
   </div>
 </section>
-
-
-<div class="map-container" aria-label="Map of Munich">
-  <iframe
-    src="https://www.openstreetmap.org/export/embed.html?bbox=11.522%2C48.063%2C11.715%2C48.186&amp;layer=mapnik"
-    loading="lazy"
-    allowfullscreen
-    title="Map of Munich"
-  ></iframe>
-</div>
 
 <footer>
   <p>© 2025 BridgeAuPair. All rights reserved.</p>
