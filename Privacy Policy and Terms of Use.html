@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Privacy Policy - BridgeAuPair</title>
+<style>
+  /* Reset */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #fafafa;
+    color: #333;
+  }
+  a {
+    color: #2563eb;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  /* Header */
+  header.site-header {
+    background: #fff;
+    padding: 1rem 3rem;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header.site-header .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #2563eb;
+    cursor: pointer;
+  }
+  header.site-header nav {
+    display: flex;
+    gap: 2rem;
+  }
+  header.site-header nav a {
+    color: #555;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  header.site-header nav a:hover {
+    color: #2563eb;
+  }
+
+  /* Container */
+  .container {
+    display: flex;
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+    gap: 2rem;
+  }
+
+  /* Sidebar */
+  nav.sidebar {
+    flex: 0 0 250px;
+    position: sticky;
+    top: 2rem;
+    align-self: flex-start;
+    border-right: 1px solid #ddd;
+    padding-right: 1rem;
+  }
+  nav.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  nav.sidebar li {
+    margin-bottom: 1rem;
+  }
+  nav.sidebar a {
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  nav.sidebar a.active,
+  nav.sidebar a:hover {
+    color: #2563eb;
+  }
+
+  /* Main Content */
+  main.content {
+    flex: 1;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    padding: 2rem 3rem;
+  }
+  main.content h1 {
+    font-weight: 900;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+  }
+  main.content p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  main.content h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: #222;
+  }
+  main.content ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  main.content ul li {
+    margin-bottom: 0.5rem;
+  }
+  main.content em {
+    color: #777;
+  }
+
+  /* Footer */
+  footer.site-footer {
+    background: #222;
+    color: #aaa;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  footer.site-footer a {
+    color: #2563eb;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    font-weight: 600;
+  }
+  footer.site-footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+    nav.sidebar {
+      position: static;
+      border-right: none;
+      padding-right: 0;
+      margin-bottom: 2rem;
+    }
+    main.content {
+      padding: 1.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="logo">
+    <img src="au pair logo.png" alt="BridgeAuPair Logo" style="height: 50px; width: auto;">
+  </a>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Blog</a>
+    <a href="#">Courses</a>
+    <a href="#">Support</a>
+  </nav>
+</header>
+
+<div class="container">
+  <nav class="sidebar" aria-label="Privacy Policy navigation">
+    <ul>
+      <li><a href="#role" class="active">Our role in your privacy</a></li>
+      <li><a href="#responsibilities">Our responsibilities</a></li>
+      <li><a href="#your-responsibilities">Your responsibilities</a></li>
+      <li><a href="#data-collection">When and how we collect data</a></li>
+      <li><a href="#data-types">Types of data we collect</a></li>
+      <li><a href="#data-usage">How and why we use your data</a></li>
+      <li><a href="#choices-rights">Your privacy choices and rights</a></li>
+      <li><a href="#data-security">How secure is the data we collect?</a></li>
+      <li><a href="#data-storage">Where do we store the data?</a></li>
+      <li><a href="#data-retention">How long do we store your data?</a></li>
+      <li><a href="#third-parties">Third parties who process your data</a></li>
+      <li><a href="#cookies">How we use cookies</a></li>
+      <li><a href="#policy-changes">Making this policy great</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+    <h1>The BridgeAuPair Privacy Policy</h1>
+    <p><em>Last updated: June 2025</em></p>
+    <p>Hello. We are BridgeAuPair. Here's how we protect your data and respect your privacy. This policy explains what data we collect, why, and how we keep it safe.</p>
+
+    <h2 id="role">Our role in your privacy</h2>
+    <p>If you use our services, this policy applies to you. We act as a data controller responsible for your personal information.</p>
+
+    <h2 id="responsibilities">Our responsibilities</h2>
+    <p>We comply with data protection laws and take care to safeguard your personal data.</p>
+
+    <h2 id="your-responsibilities">Your responsibilities</h2>
+    <ul>
+      <li>Read this Privacy Policy carefully.</li>
+      <li>Provide accurate information.</li>
+      <li>Keep your login credentials secure.</li>
+      <li>Notify us if your information changes.</li>
+    </ul>
+
+    <h2 id="data-collection">When and how we collect data</h2>
+    <p>We collect data when you register, make payments, or use our services.</p>
+
+    <h2 id="data-types">Types of data we collect</h2>
+    <p>This includes name, email, address, payment details, usage data, and cookies.</p>
+
+    <h2 id="data-usage">How and why we use your data</h2>
+    <p>We use your data to provide services, communicate, and comply with legal requirements.</p>
+
+    <h2 id="choices-rights">Your privacy choices and rights</h2>
+    <p>You can access, update, or request deletion of your data. You can also control cookies.</p>
+
+    <h2 id="data-security">How secure is the data we collect?</h2>
+    <p>We use industry-standard security measures but cannot guarantee complete security.</p>
+
+    <h2 id="data-storage">Where do we store the data?</h2>
+    <p>Your data is stored on secure servers located in Germany.</p>
+
+    <h2 id="data-retention">How long do we store your data?</h2>
+    <p>We retain data only as long as necessary for service provision and legal compliance.</p>
+
+    <h2 id="third-parties">Third parties who process your data</h2>
+    <p>We use trusted third-party services to operate our platform and payment processing.</p>
+
+    <h2 id="cookies">How we use cookies</h2>
+    <p>Cookies help us analyze traffic and improve your experience.</p>
+
+    <h2 id="policy-changes">Making this policy great</h2>
+    <p>We may update this policy from time to time. We will notify you of changes.</p>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>© 2025 BridgeAuPair. All rights reserved.</p>
+  <nav>
+    <a href="#">Home</a> |
+    <a href="#">About Us</a> |
+    <a href="#">Courses</a> |
+    <a href="#">Support</a>
+  </nav>
+</footer>
+
+</body>
+</html>

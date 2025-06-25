@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Community & Events - BridgeAuPair</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      background: #f9f9f9;
+      line-height: 1.6;
+    }
+    header.site-header {
+      background: #fff;
+      padding: 1rem 3rem;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header.site-header .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #2563eb;
+      cursor: pointer;
+    }
+    header.site-header nav {
+      display: flex;
+      gap: 2rem;
+    }
+    header.site-header nav a {
+      color: #555;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+    header.site-header nav a:hover {
+      color: #2563eb;
+    }
+
+    /* Hero Section */
+    section.hero {
+      position: relative;
+      background: url('https://source.unsplash.com/1200x400/?community,events') no-repeat center center/cover;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      padding: 0 1rem;
+    }
+    section.hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1;
+    }
+    section.hero h1 {
+      position: relative;
+      font-size: 3rem;
+      font-weight: 700;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    section.hero p {
+      position: relative;
+      z-index: 2;
+      font-size: 1.25rem;
+      margin-top: 0.5rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Page layout */
+    main {
+      max-width: 1100px;
+      margin: 2rem auto 4rem;
+      padding: 0 1rem;
+    }
+
+    /* Forum Section */
+    section.forum {
+      margin-bottom: 4rem;
+    }
+    section.forum h2 {
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #222;
+      text-align: center;
+    }
+    .forum-categories {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .category-card {
+      background: white;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+      border-radius: 12px;
+      padding: 1rem 2rem;
+      width: 250px;
+      cursor: pointer;
+      transition: box-shadow 0.3s ease;
+      text-align: center;
+      color: #2563eb;
+      font-weight: 700;
+      font-size: 1.1rem;
+      user-select: none;
+    }
+    .category-card:hover,
+    .category-card.active {
+      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+      background: #f0f7ff;
+    }
+    .posts-list {
+      max-width: 900px;
+      margin: 0 auto;
+      list-style: none;
+      padding: 0;
+    }
+    .posts-list li {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+    .posts-list li:hover {
+      background-color: #f0f7ff;
+    }
+    .post-title {
+      font-weight: 700;
+      color: #2563eb;
+      font-size: 1.15rem;
+      margin-bottom: 0.3rem;
+    }
+    .post-excerpt {
+      color: #555;
+      font-size: 1rem;
+    }
+
+    /* Events Section */
+    section.events {
+      margin-bottom: 4rem;
+    }
+    section.events h2 {
+      font-weight: 700;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #222;
+      text-align: center;
+    }
+    .filter-search {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .filter-search select,
+    .filter-search input[type="search"] {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      border: 1.5px solid #2563eb;
+      font-size: 1rem;
+      min-width: 200px;
+      outline-offset: 2px;
+      transition: border-color 0.3s ease;
+    }
+    .filter-search select:focus,
+    .filter-search input[type="search"]:focus {
+      border-color: #1d4ed8;
+    }
+    .event-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1.5rem;
+    }
+    .event-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .event-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .event-content {
+      padding: 1rem 1.25rem 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .event-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #2563eb;
+    }
+    .event-date {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    .event-description {
+      flex: 1;
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    .btn-register {
+      align-self: flex-start;
+      background-color: #2563eb;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      border: none;
+      font-size: 1rem;
+    }
+    .btn-register:hover {
+      background-color: #1d4ed8;
+    }
+
+    /* Calendar Section */
+    .calendar-section {
+      margin-top: 3rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 0.5rem;
+      user-select: none;
+    }
+    .calendar-day {
+      background: white;
+      border-radius: 8px;
+      padding: 0.5rem;
+      text-align: center;
+      font-weight: 600;
+      color: #2563eb;
+      box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+    }
+    .calendar-date {
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      font-size: 1rem;
+    }
+    .calendar-event {
+      background-color: #2563eb;
+      color: white;
+      border-radius: 6px;
+      padding: 0.3rem 0.5rem;
+      font-size: 0.8rem;
+      margin-bottom: 0.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .calendar-event:hover {
+      background-color: #1d4ed8;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      section.hero h1 {
+        font-size: 2rem;
+      }
+      .forum-categories {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .posts-list li {
+        font-size: 1rem;
+      }
+      .filter-search {
+        flex-direction: column;
+      }
+      .event-list {
+        grid-template-columns: 1fr;
+      }
+      .calendar {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <div class="logo">BridgeAuPair</div>
+  <nav role="navigation" aria-label="Primary navigation">
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Blog</a>
+    <a href="#">Courses</a>
+    <a href="#">Support</a>
+  </nav>
+</header>
+
+<section class="hero" aria-label="Community and events hero banner">
+  <h1>Community &amp; Events</h1>
+  <p>Connect, share and join our live sessions to make the most of your au pair experience.</p>
+</section>
+
+<main>
+  <section class="forum" aria-label="Community Forum">
+    <h2>Community Forum</h2>
+    <div class="forum-categories" role="list">
+      <div class="category-card active" role="listitem" tabindex="0" aria-pressed="true" data-category="all">All Topics</div>
+      <div class="category-card" role="listitem" tabindex="0" aria-pressed="false" data-category="general">General</div>
+      <div class="category-card" role="listitem" tabindex="0" aria-pressed="false" data-category="tips">Tips & Advice</div>
+      <div class="category-card" role="listitem" tabindex="0" aria-pressed="false" data-category="culture">Cultural Exchange</div>
+      <div class="category-card" role="listitem" tabindex="0" aria-pressed="false" data-category="stories">Host Family Stories</div>
+    </div>
+    <ul class="posts-list" aria-live="polite" aria-relevant="additions removals" aria-atomic="true">
+      <li data-category="general"><div class="post-title">Welcome to BridgeAuPair!</div><div class="post-excerpt">Introduce yourself and get to know the community.</div></li>
+      <li data-category="tips"><div class="post-title">Top Interview Tips</div><div class="post-excerpt">How to prepare and succeed in your au pair interview.</div></li>
+      <li data-category="culture"><div class="post-title">Sharing Cultures Safely</div><div class="post-excerpt">Best practices for respectful cultural exchange.</div></li>
+      <li data-category="stories"><div class="post-title">Our Host Families</div><div class="post-excerpt">Hear from host families about their experiences.</div></li>
+      <li data-category="tips"><div class="post-title">Handling Conflicts</div><div class="post-excerpt">Strategies for resolving misunderstandings.</div></li>
+      <li data-category="general"><div class="post-title">Events & Webinars</div><div class="post-excerpt">Join our live Q&A sessions and workshops.</div></li>
+    </ul>
+  </section>
+
+  <section class="events" aria-label="Upcoming Events & Webinars">
+    <h2>Upcoming Events & Webinars</h2>
+    <div class="filter-search">
+      <select id="eventFilter" aria-label="Filter events by type">
+        <option value="all">All Events</option>
+        <option value="webinar">Webinar</option>
+        <option value="workshop">Workshop</option>
+        <option value="qa">Q&A</option>
+      </select>
+      <input type="search" id="eventSearch" placeholder="Search events..." aria-label="Search events by keyword" />
+    </div>
+    <div class="event-list" id="eventList">
+      <article class="event-card" data-type="webinar" data-title="Effective Communication Webinar">
+        <img src="https://source.unsplash.com/400x300/?webinar" alt="Effective Communication Webinar" />
+        <div class="event-content">
+          <div class="event-title">Effective Communication Webinar</div>
+          <div class="event-date">July 10, 2025 - 6:00 PM CET</div>
+          <div class="event-description">Learn communication skills vital for au pairs and host families.</div>
+          <button class="btn-register" onclick="alert('Register for Effective Communication Webinar')">Register</button>
+        </div>
+      </article>
+      <article class="event-card" data-type="workshop" data-title="Cultural Adaptation Workshop">
+        <img src="https://source.unsplash.com/400x300/?workshop" alt="Cultural Adaptation Workshop" />
+        <div class="event-content">
+          <div class="event-title">Cultural Adaptation Workshop</div>
+          <div class="event-date">July 15, 2025 - 4:00 PM CET</div>
+          <div class="event-description">Hands-on strategies for thriving in a new culture.</div>
+          <button class="btn-register" onclick="alert('Register for Cultural Adaptation Workshop')">Register</button>
+        </div>
+      </article>
+      <article class="event-card" data-type="qa" data-title="Live Q&A Session">
+        <img src="https://source.unsplash.com/400x300/?questions" alt="Live Q&A Session" />
+        <div class="event-content">
+          <div class="event-title">Live Q&A Session</div>
+          <div class="event-date">July 20, 2025 - 5:00 PM CET</div>
+          <div class="event-description">Get your questions answered live by our experts.</div>
+          <button class="btn-register" onclick="alert('Register for Live Q&A Session')">Register</button>
+        </div>
+      </article>
+    </div>
+
+    <section class="calendar-section" aria-label="Events Calendar">
+      <div class="calendar">
+        <div class="calendar-day">Sun</div>
+        <div class="calendar-day">Mon</div>
+        <div class="calendar-day">Tue</div>
+        <div class="calendar-day">Wed</div>
+        <div class="calendar-day">Thu</div>
+        <div class="calendar-day">Fri</div>
+        <div class="calendar-day">Sat</div>
+
+        <div></div><div></div><div></div><div></div> <!-- Empty days for alignment -->
+
+        <div class="calendar-date">10
+          <div class="calendar-event" title="Effective Communication Webinar">Effective Communication Webinar</div>
+        </div>
+        <div class="calendar-date">15
+          <div class="calendar-event" title="Cultural Adaptation Workshop">Cultural Adaptation Workshop</div>
+        </div>
+        <div class="calendar-date">20
+          <div class="calendar-event" title="Live Q&A Session">Live Q&A Session</div>
+        </div>
+
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div> <!-- Fill remaining -->
+      </div>
+    </section>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 BridgeAuPair. All rights reserved.</p>
+  <nav>
+    <a href="#">Home</a> |
+    <a href="#">About Us</a> |
+    <a href="#">Blog</a> |
+    <a href="#">Courses</a> |
+    <a href="#">Support</a>
+  </nav>
+</footer>
+
+<script>
+  // Forum category filter
+  const categories = document.querySelectorAll('.category-card');
+  const posts = document.querySelectorAll('.posts-list li');
+  categories.forEach(cat => {
+    cat.addEventListener('click', () => {
+      categories.forEach(c => {
+        c.classList.remove('active');
+        c.setAttribute('aria-pressed', 'false');
+      });
+      cat.classList.add('active');
+      cat.setAttribute('aria-pressed', 'true');
+      const filter = cat.dataset.category;
+      posts.forEach(post => {
+        if(filter === 'all' || post.dataset.category === filter){
+          post.style.display = 'block';
+        } else {
+          post.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Events filter and search
+  const eventFilter = document.getElementById('eventFilter');
+  const eventSearch = document.getElementById('eventSearch');
+  const eventList = document.getElementById('eventList');
+  function filterEvents() {
+    const filterVal = eventFilter.value.toLowerCase();
+    const searchVal = eventSearch.value.toLowerCase();
+    const events = eventList.querySelectorAll('.event-card');
+    events.forEach(event => {
+      const type = event.dataset.type.toLowerCase();
+      const title = event.dataset.title.toLowerCase();
+      if ((filterVal === 'all' || filterVal === type) && title.includes(searchVal)) {
+        event.style.display = 'flex';
+      } else {
+        event.style.display = 'none';
+      }
+    });
+  }
+  eventFilter.addEventListener('change', filterEvents);
+  eventSearch.addEventListener('input', filterEvents);
+</script>
+
+</body>
+</html>

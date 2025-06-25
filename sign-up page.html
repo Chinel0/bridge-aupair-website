@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sign Up - BridgeAuPair</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+<style>
+  body {
+    margin: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+  }
+  header.site-header {
+    background: #fff;
+    padding: 1rem 3rem;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  header.site-header .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #2563eb;
+    cursor: pointer;
+  }
+  header.site-header nav {
+    display: flex;
+    gap: 2rem;
+  }
+  header.site-header nav a {
+    color: #555;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  header.site-header nav a:hover {
+    color: #2563eb;
+  }
+  main {
+    max-width: 700px;
+    margin: 2rem auto 4rem;
+    background: white;
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  }
+  h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #2563eb;
+  }
+  .verification-notice {
+    background: #e0f0ff;
+    border-left: 6px solid #2563eb;
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    color: #1a3c7a;
+    border-radius: 6px;
+  }
+  form label {
+    display: block;
+    margin: 1rem 0 0.25rem;
+    font-weight: 600;
+  }
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="password"],
+  form input[type="date"],
+  form select,
+  form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    resize: vertical;
+  }
+  form textarea {
+    min-height: 80px;
+  }
+  form button {
+    margin-top: 2rem;
+    width: 100%;
+    padding: 1rem;
+    background-color: #2563eb;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  form button:hover {
+    background-color: #1d4ed8;
+  }
+  .role-section {
+    margin-bottom: 2rem;
+  }
+  .hidden {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="logo">
+    <img src="au pair logo.png" alt="BridgeAuPair Logo" style="height: 50px; width: auto;">
+  </a>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About Us</a>
+    <a href="#">Blog</a>
+    <a href="#">Courses</a>
+    <a href="#">Support</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Sign Up</h1>
+  <div class="verification-notice">
+    Please note: All information provided will be carefully verified to ensure the safety and trustworthiness of our community.
+  </div>
+
+  <form id="signup-form" novalidate>
+    <div class="role-section">
+      <label for="role">I am signing up as a:</label>
+      <select id="role" name="role" required>
+        <option value="" disabled selected>Select Role</option>
+        <option value="aupair">Au Pair</option>
+        <option value="host">Host Family</option>
+      </select>
+    </div>
+
+    <!-- Common fields -->
+    <label for="fullName">Full Name</label>
+    <input type="text" id="fullName" name="fullName" required />
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" required minlength="6" />
+
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required minlength="6" />
+
+    <label for="country">Country of Residence</label>
+    <input type="text" id="country" name="country" required />
+
+    <label for="dob">Date of Birth</label>
+    <input type="date" id="dob" name="dob" required />
+
+    <!-- Au Pair fields -->
+    <div id="aupair-fields" class="hidden">
+      <label for="education">Educational Level</label>
+      <select id="education" name="education" required>
+        <option value="" disabled selected>Select Education Level</option>
+        <option value="highschool">High School</option>
+        <option value="college">Some College</option>
+        <option value="university">University Degree</option>
+        <option value="vocational">Vocational Training</option>
+      </select>
+
+      <label for="languages">Languages Spoken & Proficiency</label>
+      <textarea id="languages" name="languages" placeholder="E.g. English (fluent), German (basic)" required></textarea>
+
+      <label for="childcareExp">Previous Childcare Experience (details)</label>
+      <textarea id="childcareExp" name="childcareExp" required></textarea>
+      <form>
+  <!-- ... other fields ... -->
+
+  <!-- Country Interest multi-select -->
+  <label for="interested-countries">Countries Interested In</label>
+  <select id="interested-countries" name="interested-countries[]" multiple required>
+    <option value="germany">Germany</option>
+    <option value="france">France</option>
+    <option value="netherlands">Netherlands</option>
+    <option value="denmark">Denmark</option>
+    <option value="spain">Spain</option>
+    <option value="sweden">Sweden</option>
+    <!-- Add more as you want -->
+  </select>
+  <small>Hold Ctrl (Cmd on Mac) to select multiple countries.</small>
+
+
+      <label for="personality">Personality</label>
+      <select id="personality" name="personality" required>
+        <option value="" disabled selected>Select Personality</option>
+        <option value="introvert">Introvert</option>
+        <option value="extrovert">Extrovert</option>
+      </select>
+
+      <label for="availability">Availability Dates</label>
+      <input type="text" id="availability" name="availability" placeholder="E.g. June 2025 - December 2025" required />
+
+      <label for="medical">Medical Conditions or Allergies</label>
+      <textarea id="medical" name="medical" required></textarea>
+
+      <label for="references">References or Background Checks (if available)</label>
+      <textarea id="references" name="references" required></textarea>
+
+      <label for="motivation">Why do you want to be an Au Pair?</label>
+      <textarea id="motivation" name="motivation" required></textarea>
+    </div>
+
+    <!-- Host Family fields -->
+    <div id="host-fields" class="hidden">
+      <label for="contactName">Primary Contact Name</label>
+      <input type="text" id="contactName" name="contactName" />
+
+      <label for="city">City</label>
+      <input type="text" id="city" name="city" required />
+
+      <label for="numChildren">Number of Children</label>
+      <input type="number" id="numChildren" name="numChildren" min="1" required />
+
+      <label for="childrenAges">Ages of Children</label>
+      <textarea id="childrenAges" name="childrenAges" placeholder="E.g. 4, 7, 10" required></textarea>
+
+      <label for="hostingExp">Hosting Experience (details)</label>
+      <textarea id="hostingExp" name="hostingExp" required></textarea>
+
+      <label for="languagesHome">Languages Spoken at Home</label>
+      <textarea id="languagesHome" name="languagesHome" required></textarea>
+
+      <label for="householdType">Type of Household</label>
+      <select id="householdType" name="householdType" required>
+        <option value="" disabled selected>Select Household Type</option>
+        <option value="singleParent">Single Parent</option>
+        <option value="couple">Couple</option>
+        <option value="extendedFamily">Extended Family</option>
+      </select>
+
+      <label for="pets">Pets (details)</label>
+      <textarea id="pets" name="pets" required></textarea>
+
+      <label for="specialNeeds">Special Needs or Allergies</label>
+      <textarea id="specialNeeds" name="specialNeeds" required></textarea>
+
+      <label for="preferredSkills">Preferred Au Pair Skills</label>
+      <textarea id="preferredSkills" name="preferredSkills" required></textarea>
+
+      <label for="availabilityHost">Availability Dates</label>
+      <input type="text" id="availabilityHost" name="availabilityHost" placeholder="E.g. June 2025 - December 2025" required />
+
+      <label for="hostReferences">References or Background Checks (if available)</label>
+      <textarea id="hostReferences" name="hostReferences" required></textarea>
+
+      <label for="hostMotivation">Why do you want to host an Au Pair?</label>
+      <textarea id="hostMotivation" name="hostMotivation" required></textarea>
+    </div>
+
+    <button type="submit">Sign Up</button>
+  </form>
+</main>
+
+<script>
+  const roleSelect = document.getElementById('role');
+  const auPairFields = document.getElementById('aupair-fields');
+  const hostFields = document.getElementById('host-fields');
+
+  roleSelect.addEventListener('change', () => {
+    if (roleSelect.value === 'aupair') {
+      auPairFields.classList.remove('hidden');
+      hostFields.classList.add('hidden');
+    } else if (roleSelect.value === 'host') {
+      hostFields.classList.remove('hidden');
+      auPairFields.classList.add('hidden');
+    } else {
+      auPairFields.classList.add('hidden');
+      hostFields.classList.add('hidden');
+    }
+  });
+
+  // Optional: Basic password confirmation validation
+  const form = document.getElementById('signup-form');
+  form.addEventListener('submit', (e) => {
+    const pw = form.password.value;
+    const cpw = form.confirmPassword.value;
+    if (pw !== cpw) {
+      alert("Passwords do not match!");
+      e.preventDefault();
+    }
+  });
+</script>
+
+</body>
+</html>
